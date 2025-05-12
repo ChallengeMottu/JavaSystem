@@ -1,30 +1,30 @@
 package br.com.pulse.dtos;
 
 import br.com.pulse.domainmodel.Moto;
+import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
+import br.com.pulse.domainmodel.enuns.ModeloMoto;
+import br.com.pulse.domainmodel.enuns.StatusBeacon;
 
-import java.util.UUID;
-
-public class MotoDto {
+public class MotoPostDto {
     private Long id;
     private String placa;
-    private String modelo;
+    private ModeloMoto modelo;
     private String numeroChassi;
     private String cor;
-    private UUID codigoBeacon;
-    private String status;
-    private String condicaoMecanica;
+    private StatusBeacon status;
+    private CondicaoMecanica condicaoMecanica;
 
 
-    public MotoDto() {
+
+    public MotoPostDto() {
     }
 
-    public MotoDto(Moto moto) {
+    public MotoPostDto(Moto moto) {
         this.id = moto.getId();
         this.placa = moto.getPlaca();
-        this.numeroChassi = moto.getNumeroChassi();
         this.modelo = moto.getModelo();
+        this.numeroChassi = moto.getNumeroChassi();
         this.cor = moto.getCor();
-        this.codigoBeacon = moto.getCodigoBeacon() != null ? moto.getCodigoBeacon().getCodigoUnico() : null;
         this.status = moto.getStatus();
         this.condicaoMecanica = moto.getCondicaoMecanica();
     }
@@ -45,11 +45,11 @@ public class MotoDto {
         this.placa = placa;
     }
 
-    public String getModelo() {
+    public ModeloMoto getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(ModeloMoto modelo) {
         this.modelo = modelo;
     }
 
@@ -61,21 +61,14 @@ public class MotoDto {
         this.numeroChassi = numeroChassi;
     }
 
-    public String getStatus() {
+    public StatusBeacon getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusBeacon status) {
         this.status = status;
     }
 
-    public UUID getCodigoBeacon() {
-        return codigoBeacon;
-    }
-
-    public void setCodigoBeacon(UUID codigoBeacon) {
-        this.codigoBeacon = codigoBeacon;
-    }
 
     public String getCor() {
         return cor;
@@ -85,11 +78,13 @@ public class MotoDto {
         this.cor = cor;
     }
 
-    public String getCondicaoMecanica() {
+    public CondicaoMecanica getCondicaoMecanica() {
         return condicaoMecanica;
     }
 
-    public void setCondicaoMecanica(String condicaoMecanica) {
+    public void setCondicaoMecanica(CondicaoMecanica condicaoMecanica) {
         this.condicaoMecanica = condicaoMecanica;
     }
+
+
 }

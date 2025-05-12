@@ -1,9 +1,9 @@
 package br.com.pulse.domainmodel;
 
+import br.com.pulse.domainmodel.enuns.StatusBeacon;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -15,16 +15,19 @@ public class Beacon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter
+
     private Long id;
 
-    private UUID codigoUnico;
+    @Column(unique = true, nullable = false)
+    private UUID codigo;
 
-    @Getter @Setter
-    private boolean ehAtivo;
+
+    @Enumerated(EnumType.STRING)
+    private StatusBeacon status;
 
     @OneToOne
     @JoinColumn(name = "moto_id")
+    @JsonManagedReference
     private Moto moto;
 
 
@@ -49,20 +52,20 @@ public class Beacon {
         this.id = id;
     }
 
-    public UUID getCodigoUnico() {
-        return codigoUnico;
+    public UUID getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoUnico(UUID codigoUnico) {
-        this.codigoUnico = codigoUnico;
+    public void setCodigo(UUID codigo) {
+        this.codigo = codigo;
     }
 
-    public boolean isEhAtivo() {
-        return ehAtivo;
+    public StatusBeacon getStatus() {
+        return status;
     }
 
-    public void setEhAtivo(boolean ehAtivo) {
-        this.ehAtivo = ehAtivo;
+    public void setStatus(StatusBeacon status) {
+        this.status = status;
     }
 
     public Moto getMoto() {

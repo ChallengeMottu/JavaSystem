@@ -1,20 +1,18 @@
 package br.com.pulse.services;
 
 import br.com.pulse.domainmodel.Moto;
-import br.com.pulse.dtos.MotoDto;
+import br.com.pulse.dtos.MotoPostDto;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 
 public interface MotoService {
 
     List<Moto> findAll();
     Optional<Moto> findById(Long id);
-    MotoDto cadastrarMoto(MotoDto motoDto);
+    MotoPostDto cadastrarMoto(MotoPostDto motoPostDto);
     void deletebyId(Long id);
-    Optional<Moto> buscarMotoPorBeacon(UUID codigoBeacon);
-    MotoDto updateMoto(Long id, MotoDto motoDto);
+    MotoPostDto updateMoto(Long id, MotoPostDto motoPostDto);
 
 }

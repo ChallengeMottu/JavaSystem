@@ -8,5 +8,7 @@ import java.util.UUID;
 
 public interface BeaconRepository extends JpaRepository<Beacon, Long> {
 
-    Optional<Beacon> findByCodigoUnico(UUID codigoUnico);
+    Optional<Beacon> findByCodigo(UUID codigo);
+
+    void deleteBeaconByCodigo(UUID codigo);
 }

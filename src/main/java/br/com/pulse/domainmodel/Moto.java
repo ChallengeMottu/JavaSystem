@@ -1,10 +1,14 @@
 package br.com.pulse.domainmodel;
 
 
+import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
+import br.com.pulse.domainmodel.enuns.ModeloMoto;
+import br.com.pulse.domainmodel.enuns.StatusBeacon;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 
 import java.util.Objects;
@@ -14,34 +18,35 @@ import java.util.Objects;
 public class Moto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter
+
     private Long id;
 
-    @Getter @Setter
+
     private String placa;
 
-    @Getter @Setter
-    private String modelo;
 
-    @Getter @Setter
+    private ModeloMoto modelo;
+
+
     private String cor;
 
-    @Getter @Setter
+
     private String numeroChassi;
 
-    @Getter @Setter
-    private String condicaoMecanica;
+    @Enumerated(EnumType.STRING)
+    private CondicaoMecanica condicaoMecanica;
 
-    @Getter @Setter
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private StatusBeacon status;
 
     @OneToOne(mappedBy = "moto", cascade = CascadeType.ALL)
-    @Getter @Setter
-    private Beacon codigoBeacon;
+    @JsonBackReference
+    @JsonIgnore
+    private Beacon beacon;
 
     @ManyToOne
     @JoinColumn(name = "patio_id")
-    @Getter @Setter
+
     private Patio patio;
 
     @Override
@@ -73,11 +78,11 @@ public class Moto {
         this.placa = placa;
     }
 
-    public String getModelo() {
+    public ModeloMoto getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(ModeloMoto modelo) {
         this.modelo = modelo;
     }
 
@@ -97,28 +102,28 @@ public class Moto {
         this.numeroChassi = numeroChassi;
     }
 
-    public String getCondicaoMecanica() {
+    public CondicaoMecanica getCondicaoMecanica() {
         return condicaoMecanica;
     }
 
-    public void setCondicaoMecanica(String condicaoMecanica) {
+    public void setCondicaoMecanica(CondicaoMecanica condicaoMecanica) {
         this.condicaoMecanica = condicaoMecanica;
     }
 
-    public String getStatus() {
+    public StatusBeacon getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusBeacon status) {
         this.status = status;
     }
 
-    public Beacon getCodigoBeacon() {
-        return codigoBeacon;
+    public Beacon getBeacon() {
+        return beacon;
     }
 
-    public void setCodigoBeacon(Beacon codigoBeacon) {
-        this.codigoBeacon = codigoBeacon;
+    public void setBeacon(Beacon beacon) {
+        this.beacon = beacon;
     }
 
     public Patio getPatio() {

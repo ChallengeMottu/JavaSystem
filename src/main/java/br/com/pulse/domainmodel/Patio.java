@@ -19,8 +19,9 @@ public class Patio {
     @Getter @Setter
     private Long id;
 
+    @Embedded
     @Getter @Setter
-    private String nome;
+    private Endereco endereco;
 
     @Getter @Setter
     private double comprimento;
@@ -28,8 +29,6 @@ public class Patio {
     @Getter @Setter
     private double largura;
 
-    @Getter @Setter
-    private String localizacao;
 
     @Getter @Setter
     private int totalZonas;
@@ -74,6 +73,7 @@ public class Patio {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 
 
 }
