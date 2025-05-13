@@ -1,8 +1,11 @@
 package br.com.pulse.services;
 
 import br.com.pulse.domainmodel.Moto;
+import br.com.pulse.domainmodel.Patio;
+import br.com.pulse.dtos.MotoGetDto;
 import br.com.pulse.dtos.MotoPostDto;
 import br.com.pulse.repositories.MotoRepository;
+import br.com.pulse.repositories.PatioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,15 +17,21 @@ import java.util.Optional;
 public class MotoServiceImpl implements MotoService {
 
     private final MotoRepository motoRepository;
+    private final PatioRepository patioRepository;
 
     @Autowired
-    public MotoServiceImpl(MotoRepository motoRepository) {
+    public MotoServiceImpl(MotoRepository motoRepository, PatioRepository patioRepository) {
         this.motoRepository = motoRepository;
+        this.patioRepository = patioRepository;
     }
 
     @Override
-    public List<Moto> findAll() {
-        return motoRepository.findAll();
+    public List<MotoGetDto> findAll() {
+
+        return motoRepository.findAll()
+                .stream()
+                .map(MotoGetDto::new)
+                .toList();
     }
 
     @Override
@@ -33,7 +42,10 @@ public class MotoServiceImpl implements MotoService {
 
     @Override
     @Transactional
-    public MotoPostDto cadastrarMoto(MotoPostDto motoPostDto) {
+    public MotoPostDto cadastrarMoto(MotoPostDto motoPostDto, Long patioId) {
+        Patio patio = patioRepository.findById(patioId)
+                .orElseThrow(() -> new RuntimeException("Patio não encontrado"));
+
         Moto moto = new Moto();
         moto.setPlaca(motoPostDto.getPlaca());
         moto.setModelo(motoPostDto.getModelo());
@@ -41,6 +53,9 @@ public class MotoServiceImpl implements MotoService {
         moto.setCor(motoPostDto.getCor());
         moto.setStatus(motoPostDto.getStatus());
         moto.setCondicaoMecanica(motoPostDto.getCondicaoMecanica());
+        moto.setPatio(patio);
+        patio.getMotos().add(moto);
+
 
         Moto motoSalva = motoRepository.save(moto);
         return new MotoPostDto(motoSalva);

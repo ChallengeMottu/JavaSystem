@@ -2,16 +2,15 @@ package br.com.pulse.services;
 
 import br.com.pulse.domainmodel.Patio;
 import br.com.pulse.dtos.MotoGetDto;
-import br.com.pulse.dtos.PatioPostDto;
+import br.com.pulse.dtos.PatioDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PatioService {
     List<Patio> listAllPatios();
-    List<MotoGetDto> listAllMotos();
+    List<MotoGetDto> listAllMotos(Long patioId);
     void deletePatioById(Long id);
     Patio getPatioById(Long id);
-    Patio updatePatio(Long id, PatioPostDto patio);
-    Patio savePatio(Patio patio);
+    Patio updatePatio(Long id, PatioDto patio);
+    Patio savePatio(PatioDto patioDto);
 }

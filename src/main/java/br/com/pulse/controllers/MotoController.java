@@ -37,20 +37,19 @@ public class MotoController {
 
     @Operation(summary = "Lista todas as Motos cadastradas")
     @GetMapping
-    public List<MotoGetDto> listar() {
-        List<Moto> motos = motoServiceImpl.findAll();
-        return motos.stream().map(MotoGetDto::new).collect(Collectors.toList());
+    public ResponseEntity<List<MotoGetDto>> listar() {
+        return ResponseEntity.ok(motoServiceImpl.findAll());
     }
 
 
     @Operation(summary = "Realiza cadastro da Moto")
-    @PostMapping
-    public ResponseEntity<MotoPostDto> cadastrarMoto(@RequestBody MotoPostDto motoPostDto) {
+    @PostMapping("/{patioId}")
+    public ResponseEntity<MotoPostDto> cadastrarMoto(@RequestBody MotoPostDto motoPostDto, @PathVariable Long patioId) {
         try {
-            MotoPostDto moto = motoServiceImpl.cadastrarMoto(motoPostDto);
+            MotoPostDto moto = motoServiceImpl.cadastrarMoto(motoPostDto, patioId);
             return ResponseEntity.status(HttpStatus.CREATED).body(moto);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 

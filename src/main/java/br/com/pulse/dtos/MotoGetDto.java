@@ -2,7 +2,6 @@ package br.com.pulse.dtos;
 
 import br.com.pulse.domainmodel.Moto;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
-import br.com.pulse.repositories.MotoRepository;
 
 import java.util.UUID;
 
@@ -13,6 +12,10 @@ public class MotoGetDto {
     private UUID codigoBeacon;
     private String numeroChassi;
     private String cor;
+    private PatioGetDto patio;
+
+    public MotoGetDto() {
+    }
 
     public MotoGetDto(Moto moto){
         this.id = moto.getId();
@@ -21,6 +24,7 @@ public class MotoGetDto {
         this.codigoBeacon = (moto.getBeacon() != null) ? moto.getBeacon().getCodigo() : null;
         this.numeroChassi = moto.getNumeroChassi();
         this.cor = moto.getCor();
+        this.patio = new PatioGetDto(moto.getPatio());
     }
 
     public Long getId() {
@@ -69,5 +73,13 @@ public class MotoGetDto {
 
     public void setCor(String cor) {
         this.cor = cor;
+    }
+
+    public PatioGetDto getPatio() {
+        return patio;
+    }
+
+    public void setPatio(PatioGetDto patio) {
+        this.patio = patio;
     }
 }

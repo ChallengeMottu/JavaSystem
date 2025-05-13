@@ -2,20 +2,17 @@ package br.com.pulse.services;
 
 import br.com.pulse.domainmodel.Patio;
 import br.com.pulse.dtos.MotoGetDto;
-import br.com.pulse.dtos.PatioPostDto;
+import br.com.pulse.dtos.PatioDto;
 import br.com.pulse.repositories.PatioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-import java.util.Optional;
+
 
 
 @Service
 public class PatioServiceImpl implements PatioService {
 
-    @Autowired
     private final PatioRepository patioRepository;
 
     public PatioServiceImpl(PatioRepository patioRepository) {
@@ -24,34 +21,35 @@ public class PatioServiceImpl implements PatioService {
 
     @Override
     public List<Patio> listAllPatios() {
-
         return patioRepository.findAll();
     }
 
     @Override
-    public List<MotoGetDto> listAllMotos() {
-
-        return List.of();
+    public List<MotoGetDto> listAllMotos(Long patioId) {
+        Patio patio = patioRepository.findById(patioId)
+                .orElseThrow(()-> new RuntimeException("Patio não encontrado"));
+        return patio.getMotos().stream()
+                .map(MotoGetDto::new)
+                .toList();
     }
 
     @Override
     public void deletePatioById(Long id) {
-
+        if (!patioRepository.existsById(id)) {
+            throw new RuntimeException("Pátio não encontrado com id: " + id);
+        }
         patioRepository.deleteById(id);
     }
 
     @Override
     public Patio getPatioById(Long id) {
-
         return patioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pátio não encontrado com id: " + id));
     }
 
-
-
     @Override
     @Transactional
-    public Patio updatePatio(Long id, PatioPostDto patioUpdate) {
+    public Patio updatePatio(Long id, PatioDto patioUpdate) {
         Patio patio = patioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pátio não encontrado com id: " + id));
 
@@ -65,8 +63,14 @@ public class PatioServiceImpl implements PatioService {
     }
 
     @Override
-    public Patio savePatio(Patio patio) {
+    public Patio savePatio(PatioDto patioDto) {
+        Patio patio = new Patio();
+        patio.setEndereco(patioDto.getEndereco());
+        patio.setComprimento(patioDto.getComprimento());
+        patio.setLargura(patioDto.getLargura());
         patio.atualizarCapacidade();
         return patioRepository.save(patio);
     }
 }
+
+

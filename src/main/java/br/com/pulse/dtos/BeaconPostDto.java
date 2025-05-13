@@ -9,7 +9,8 @@ public class BeaconPostDto {
     private StatusBeacon status;
     private UUID codigoBeacon;
 
-
+    public BeaconPostDto() {
+    }
 
     public BeaconPostDto(Beacon beacon) {
         this.status = beacon.getStatus();

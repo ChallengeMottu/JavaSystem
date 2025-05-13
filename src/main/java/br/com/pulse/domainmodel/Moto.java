@@ -46,7 +46,7 @@ public class Moto {
 
     @ManyToOne
     @JoinColumn(name = "patio_id")
-
+    @JsonBackReference
     private Patio patio;
 
     @Override

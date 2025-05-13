@@ -1,5 +1,7 @@
 package br.com.pulse.domainmodel;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +40,7 @@ public class Patio {
 
     @OneToMany(mappedBy = "patio", cascade = CascadeType.ALL)
     @Getter @Setter
+    @JsonManagedReference
     private List<Moto> motos = new ArrayList<>();
 
 
