@@ -2,6 +2,8 @@ package br.com.pulse.services;
 
 import br.com.pulse.domainmodel.Beacon;
 import br.com.pulse.dtos.BeaconPostDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -14,6 +16,7 @@ public interface BeaconService {
     Beacon saveBeacon(BeaconPostDto beaconDto, Long motoId);
     void deleteBeaconById(Long id);
     List<Beacon> listAllBeacons();
+    Page<Beacon> findAllBeaconsPaged(Pageable pageable);
     Beacon updateBeacon(Long id, BeaconPostDto beaconUpdate);
 }
 

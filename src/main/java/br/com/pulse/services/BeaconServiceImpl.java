@@ -8,6 +8,8 @@ import br.com.pulse.repositories.BeaconRepository;
 import br.com.pulse.repositories.MotoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,6 +86,11 @@ public class BeaconServiceImpl implements BeaconService {
     @Cacheable(value = "beaconCache", key = "'beacons_all'")
     public List<Beacon> listAllBeacons() {
         return beaconRepository.findAll();
+    }
+
+    @Override
+    public Page<Beacon> findAllBeaconsPaged(Pageable pageable) {
+        return beaconRepository.findAll(pageable);
     }
 
     @Transactional

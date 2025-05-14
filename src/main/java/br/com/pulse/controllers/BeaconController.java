@@ -7,6 +7,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,12 @@ public class BeaconController {
     public ResponseEntity<List<Beacon>> getAllBeacons() {
         List<Beacon> beacons = beaconServiceImpl.listAllBeacons();
         return ResponseEntity.ok(beacons);
+    }
+
+    @GetMapping("/pageable")
+    public ResponseEntity<Page<Beacon>> getAllBeaconsPaginated(Pageable pageable) {
+        Page<Beacon> beacon = beaconServiceImpl.findAllBeaconsPaged(pageable);
+        return ResponseEntity.ok().body(beacon);
     }
 
     @DeleteMapping("/{id}")

@@ -34,7 +34,7 @@ public class PatioController {
         return ResponseEntity.ok().body(patios);
     }
 
-    @GetMapping("/paginacao")
+    @GetMapping("/pageable")
     public ResponseEntity<Page<Patio>> findAllPatiosPaged(Pageable pageable) {
         Page<Patio> page = patioServiceImpl.listAllPatiosPaged(pageable);
         return ResponseEntity.ok().body(page);
