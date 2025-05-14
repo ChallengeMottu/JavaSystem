@@ -4,6 +4,7 @@ package br.com.pulse.domainmodel;
 import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
 import br.com.pulse.domainmodel.enuns.StatusBeacon;
+import br.com.pulse.domainmodel.enuns.StatusMoto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -28,7 +29,6 @@ public class Moto {
     private ModeloMoto modelo;
 
 
-    private String cor;
 
 
     private String numeroChassi;
@@ -37,7 +37,7 @@ public class Moto {
     private CondicaoMecanica condicaoMecanica;
 
     @Enumerated(EnumType.STRING)
-    private StatusBeacon status;
+    private StatusMoto status;
 
     @OneToOne(mappedBy = "moto", cascade = CascadeType.ALL)
     @JsonBackReference
@@ -86,13 +86,7 @@ public class Moto {
         this.modelo = modelo;
     }
 
-    public String getCor() {
-        return cor;
-    }
 
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
 
     public String getNumeroChassi() {
         return numeroChassi;
@@ -110,11 +104,11 @@ public class Moto {
         this.condicaoMecanica = condicaoMecanica;
     }
 
-    public StatusBeacon getStatus() {
+    public StatusMoto getStatus() {
         return status;
     }
 
-    public void setStatus(StatusBeacon status) {
+    public void setStatus(StatusMoto status) {
         this.status = status;
     }
 

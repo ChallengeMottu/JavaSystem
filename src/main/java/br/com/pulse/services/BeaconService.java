@@ -10,20 +10,10 @@ import java.util.UUID;
 
 public interface BeaconService {
     Optional<Beacon> findByCodigoUnico(UUID codigoUnico);
-
-    Beacon findById(Long id);
-
-    Beacon save(BeaconPostDto beaconDto, Long motoId);
-
-    void deleteById(Long id);
-
-    void deleteByCodigo(UUID codigo);
-
+    Beacon findBeaconById(Long id);
+    Beacon saveBeacon(BeaconPostDto beaconDto, Long motoId);
+    void deleteBeaconById(Long id);
     List<Beacon> listAllBeacons();
-
-
-
-
     Beacon updateBeacon(Long id, BeaconPostDto beaconUpdate);
 }
 

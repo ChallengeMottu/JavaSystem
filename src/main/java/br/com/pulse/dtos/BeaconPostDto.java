@@ -2,11 +2,15 @@ package br.com.pulse.dtos;
 
 import br.com.pulse.domainmodel.Beacon;
 import br.com.pulse.domainmodel.enuns.StatusBeacon;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
 public class BeaconPostDto {
+
+    @NotNull(message = "O status do beacon precisa ser fornecido")
     private StatusBeacon status;
+
     private UUID codigoBeacon;
 
     public BeaconPostDto() {

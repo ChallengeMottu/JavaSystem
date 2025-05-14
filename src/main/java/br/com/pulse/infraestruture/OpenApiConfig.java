@@ -1,4 +1,4 @@
-package br.com.pulse.runners;
+package br.com.pulse.infraestruture;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

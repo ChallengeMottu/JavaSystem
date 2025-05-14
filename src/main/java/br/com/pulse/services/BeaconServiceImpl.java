@@ -3,9 +3,11 @@ package br.com.pulse.services;
 import br.com.pulse.domainmodel.Beacon;
 import br.com.pulse.domainmodel.Moto;
 import br.com.pulse.dtos.BeaconPostDto;
+import br.com.pulse.exceptions.ObjectNotFoundException;
 import br.com.pulse.repositories.BeaconRepository;
 import br.com.pulse.repositories.MotoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,21 +23,23 @@ public class BeaconServiceImpl implements BeaconService {
     private final MotoRepository motoRepository;
 
     @Override
+    @Cacheable(value = "beaconCache", key = "#codigo")
     public Optional<Beacon> findByCodigoUnico(UUID codigo) {
         return beaconRepository.findByCodigo(codigo);
     }
 
     @Override
-    public Beacon findById(Long id) {
+    @Cacheable(value = "beaconCache", key = "#id")
+    public Beacon findBeaconById(Long id) {
         return beaconRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Beacon com ID " + id + " não encontrado."));
+                .orElseThrow(() -> new ObjectNotFoundException("Beacon", id));
     }
 
     @Override
     @Transactional
-    public Beacon save(BeaconPostDto beaconDto, Long motoId) {
+    public Beacon saveBeacon(BeaconPostDto beaconDto, Long motoId) {
         Moto moto = motoRepository.findById(motoId)
-                .orElseThrow(() -> new RuntimeException("Moto com ID " + motoId + " não encontrada."));
+                .orElseThrow(() -> new ObjectNotFoundException("Moto", motoId));
 
         if (moto.getBeacon() != null) {
             throw new RuntimeException("Esta moto já possui um beacon vinculado.");
@@ -59,9 +63,9 @@ public class BeaconServiceImpl implements BeaconService {
 
     @Override
     @Transactional
-    public void deleteById(Long id) {
+    public void deleteBeaconById(Long id) {
         Beacon beacon = beaconRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Beacon com ID " + id + " não encontrado para exclusão."));
+                .orElseThrow(() -> new ObjectNotFoundException("Beacon", id));
 
         Moto moto = beacon.getMoto();
         if (moto != null) {
@@ -74,16 +78,10 @@ public class BeaconServiceImpl implements BeaconService {
     }
 
 
-    @Override
-    public void deleteByCodigo(UUID codigo) {
-        Optional<Beacon> beacon = beaconRepository.findByCodigo(codigo);
-        if (beacon.isEmpty()) {
-            throw new RuntimeException("Beacon com código " + codigo + " não encontrado para exclusão.");
-        }
-        beaconRepository.delete(beacon.get());
-    }
+
 
     @Override
+    @Cacheable(value = "beaconCache", key = "'beacons_all'")
     public List<Beacon> listAllBeacons() {
         return beaconRepository.findAll();
     }
@@ -92,7 +90,7 @@ public class BeaconServiceImpl implements BeaconService {
     @Override
     public Beacon updateBeacon(Long id, BeaconPostDto beaconUpdate) {
         Beacon beacon = beaconRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Beacon com ID " + id + " não encontrado."));
+                .orElseThrow(() -> new ObjectNotFoundException("Beacon", id));
 
         beacon.setStatus(beaconUpdate.getStatus());
 

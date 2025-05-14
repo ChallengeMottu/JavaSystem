@@ -4,14 +4,29 @@ import br.com.pulse.domainmodel.Moto;
 import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
 import br.com.pulse.domainmodel.enuns.StatusBeacon;
+import br.com.pulse.domainmodel.enuns.StatusMoto;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class MotoPostDto {
-    private Long id;
+
+
+    @Size(min = 7, max= 8, message = "A placa deve ter entre 7 e 8 caracteres")
     private String placa;
+
+    @NotNull(message = "O modelo é obrigatório")
     private ModeloMoto modelo;
+
+    @NotBlank(message = "O número de chassi é obrigatório")
+    @Size(min = 17, max = 17, message = "O número de chassi precisa conter 17 caracteres")
     private String numeroChassi;
-    private String cor;
-    private StatusBeacon status;
+
+
+    @NotNull(message = "O status atual da moto precisa ser fornecido")
+    private StatusMoto status;
+
+    @NotNull(message = "A condição mecânica atual da moto precisa ser fornecida")
     private CondicaoMecanica condicaoMecanica;
 
 
@@ -20,22 +35,14 @@ public class MotoPostDto {
     }
 
     public MotoPostDto(Moto moto) {
-        this.id = moto.getId();
         this.placa = moto.getPlaca();
         this.modelo = moto.getModelo();
         this.numeroChassi = moto.getNumeroChassi();
-        this.cor = moto.getCor();
         this.status = moto.getStatus();
         this.condicaoMecanica = moto.getCondicaoMecanica();
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getPlaca() {
         return placa;
@@ -61,22 +68,15 @@ public class MotoPostDto {
         this.numeroChassi = numeroChassi;
     }
 
-    public StatusBeacon getStatus() {
+    public StatusMoto getStatus() {
         return status;
     }
 
-    public void setStatus(StatusBeacon status) {
+    public void setStatus(StatusMoto status) {
         this.status = status;
     }
 
 
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
 
     public CondicaoMecanica getCondicaoMecanica() {
         return condicaoMecanica;

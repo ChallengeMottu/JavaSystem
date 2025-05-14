@@ -10,5 +10,5 @@ public interface BeaconRepository extends JpaRepository<Beacon, Long> {
 
     Optional<Beacon> findByCodigo(UUID codigo);
 
-    void deleteBeaconByCodigo(UUID codigo);
+
 }

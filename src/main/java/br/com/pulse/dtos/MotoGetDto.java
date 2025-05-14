@@ -1,7 +1,9 @@
 package br.com.pulse.dtos;
 
 import br.com.pulse.domainmodel.Moto;
+import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
+import br.com.pulse.domainmodel.enuns.StatusMoto;
 
 import java.util.UUID;
 
@@ -11,8 +13,9 @@ public class MotoGetDto {
     private String placa;
     private UUID codigoBeacon;
     private String numeroChassi;
-    private String cor;
     private PatioGetDto patio;
+    private StatusMoto status;
+    private CondicaoMecanica condicaoMecanica;
 
     public MotoGetDto() {
     }
@@ -23,8 +26,9 @@ public class MotoGetDto {
         this.placa = moto.getPlaca();
         this.codigoBeacon = (moto.getBeacon() != null) ? moto.getBeacon().getCodigo() : null;
         this.numeroChassi = moto.getNumeroChassi();
-        this.cor = moto.getCor();
         this.patio = new PatioGetDto(moto.getPatio());
+        this.status = moto.getStatus();
+        this.condicaoMecanica = moto.getCondicaoMecanica();
     }
 
     public Long getId() {
@@ -67,13 +71,7 @@ public class MotoGetDto {
         this.numeroChassi = numeroChassi;
     }
 
-    public String getCor() {
-        return cor;
-    }
 
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
 
     public PatioGetDto getPatio() {
         return patio;
@@ -81,5 +79,21 @@ public class MotoGetDto {
 
     public void setPatio(PatioGetDto patio) {
         this.patio = patio;
+    }
+
+    public StatusMoto getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusMoto status) {
+        this.status = status;
+    }
+
+    public CondicaoMecanica getCondicaoMecanica() {
+        return condicaoMecanica;
+    }
+
+    public void setCondicaoMecanica(CondicaoMecanica condicaoMecanica) {
+        this.condicaoMecanica = condicaoMecanica;
     }
 }

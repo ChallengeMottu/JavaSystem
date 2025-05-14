@@ -1,6 +1,6 @@
 package br.com.pulse.domainmodel;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -47,7 +47,7 @@ public class Patio {
     public void calculaCapacidade() {
         double areaTotal = comprimento * largura;
 
-        int zonas = (int) (areaTotal / 25);
+        int zonas = (int) Math.ceil(areaTotal / 25);
         int capacidade = (int) (areaTotal / 2);
         if (zonas < 1){
             zonas = 1;
