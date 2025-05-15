@@ -42,14 +42,15 @@ public class MotoController {
 
     @Operation(summary = "Lista todas as Motos cadastradas")
     @GetMapping
-    public ResponseEntity<List<MotoGetDto>> listAllMotos() {
+    public ResponseEntity<List<MotoGetDto>> findAllMotos() {
         return ResponseEntity.ok(motoServiceImpl.findAllMotos());
     }
 
 
     @GetMapping("/pageable")
-    public ResponseEntity<Page<MotoGetDto>> listAllMotosPaged(Pageable pageable){
-        Page<MotoGetDto> page = motoServiceImpl.listAllMotosPaged(pageable);
+    @Operation(summary = "Lista todas as Motos com paginação")
+    public ResponseEntity<Page<MotoGetDto>> findAllMotosPaged(Pageable pageable){
+        Page<MotoGetDto> page = motoServiceImpl.findAllMotosPaged(pageable);
         return ResponseEntity.ok().body(page);
     }
 
@@ -83,10 +84,17 @@ public class MotoController {
     }
 
     @GetMapping("/modelo/{modelo}")
-    public ResponseEntity<List<MotoGetDto>> listMotoByModelo(@PathVariable ModeloMoto modelo) {
+    public ResponseEntity<List<MotoGetDto>> findMotoByModelo(@PathVariable ModeloMoto modelo) {
         List<MotoGetDto> motos = motoServiceImpl.findMotoByModelo(modelo);
         return ResponseEntity.ok(motos);
     }
+
+    @GetMapping("/modelo/{modelo}/pageable")
+    public ResponseEntity<Page<MotoGetDto>> findMotoByModeloPaged(@PathVariable ModeloMoto modelo, Pageable pageable) {
+        Page<MotoGetDto> motos = motoServiceImpl.findMotoByModeloPaged(modelo, pageable);
+        return ResponseEntity.ok(motos);
+    }
+
 
 
 

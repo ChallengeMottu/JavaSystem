@@ -25,12 +25,12 @@ public class PatioServiceImpl implements PatioService {
 
     @Override
     @Cacheable(value = "patioCache", key = "'patios_all'")
-    public List<Patio> listAllPatios() {
+    public List<Patio> findAllPatios() {
         return patioRepository.findAll();
     }
 
     @Override
-    public Page<Patio> listAllPatiosPaged(Pageable pageable) {
+    public Page<Patio> findAllPatiosPaged(Pageable pageable) {
         return patioRepository.findAll(pageable);
     }
 

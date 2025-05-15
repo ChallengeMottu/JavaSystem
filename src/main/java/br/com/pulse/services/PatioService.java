@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface PatioService {
-    List<Patio> listAllPatios();
-    Page<Patio> listAllPatiosPaged(Pageable pageable);
+    List<Patio> findAllPatios();
+    Page<Patio> findAllPatiosPaged(Pageable pageable);
     List<MotoGetDto> listAllMotos(Long patioId);
     void deletePatioById(Long id);
     Patio getPatioById(Long id);

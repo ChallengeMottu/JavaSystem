@@ -2,6 +2,8 @@ package br.com.pulse.repositories;
 
 import br.com.pulse.domainmodel.Moto;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +16,6 @@ public interface MotoRepository extends JpaRepository<Moto, Long> {
 
     Optional<Moto> findByBeaconCodigo(UUID codigoBeacon);
     List<Moto> findByModelo(ModeloMoto modelo);
+    Page<Moto> findByModelo(ModeloMoto modelo, Pageable pageable);
+
 }

@@ -29,14 +29,15 @@ public class PatioController {
 
     @GetMapping
     @Operation(summary = "Listagem de todos os Patios cadastrados")
-    public ResponseEntity<List<Patio>> listAllPatios() {
-        List<Patio> patios = patioServiceImpl.listAllPatios();
+    public ResponseEntity<List<Patio>> findAllPatios() {
+        List<Patio> patios = patioServiceImpl.findAllPatios();
         return ResponseEntity.ok().body(patios);
     }
 
     @GetMapping("/pageable")
+    @Operation(summary = "Listagem com paginação de todos os Patios")
     public ResponseEntity<Page<Patio>> findAllPatiosPaged(Pageable pageable) {
-        Page<Patio> page = patioServiceImpl.listAllPatiosPaged(pageable);
+        Page<Patio> page = patioServiceImpl.findAllPatiosPaged(pageable);
         return ResponseEntity.ok().body(page);
     }
 

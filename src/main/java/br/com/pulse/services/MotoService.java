@@ -16,13 +16,15 @@ import java.util.UUID;
 public interface MotoService {
 
     List<MotoGetDto> findAllMotos();
-    Page<MotoGetDto> listAllMotosPaged(Pageable pageable);
+    Page<MotoGetDto> findAllMotosPaged(Pageable pageable);
     Optional<Moto> findMotoById(Long id);
     MotoPostDto saveMoto(MotoPostDto motoPostDto, Long patioId);
     void deleteMotoById(Long id);
     MotoPostDto updateMoto(Long id, MotoPostDto motoPostDto);
     MotoGetDto findMotoByCodigoBeacon(UUID codigoBeacon);
     List<MotoGetDto> findMotoByModelo(ModeloMoto modelo);
+    Page<MotoGetDto> findMotoByModeloPaged(ModeloMoto modelo, Pageable pageable);
+
 
 
 }

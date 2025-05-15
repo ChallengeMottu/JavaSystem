@@ -15,7 +15,7 @@ public interface BeaconService {
     Beacon findBeaconById(Long id);
     Beacon saveBeacon(BeaconPostDto beaconDto, Long motoId);
     void deleteBeaconById(Long id);
-    List<Beacon> listAllBeacons();
+    List<Beacon> findAllBeacons();
     Page<Beacon> findAllBeaconsPaged(Pageable pageable);
     Beacon updateBeacon(Long id, BeaconPostDto beaconUpdate);
 }

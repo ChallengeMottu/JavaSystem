@@ -52,7 +52,7 @@ public class MotoServiceImpl implements MotoService {
 
 
     @Override
-    public Page<MotoGetDto> listAllMotosPaged(Pageable pageable) {
+    public Page<MotoGetDto> findAllMotosPaged(Pageable pageable) {
         return motoRepository.findAll(pageable)
                 .map(MotoGetDto::new);
     }
@@ -130,9 +130,14 @@ public class MotoServiceImpl implements MotoService {
                 .toList();
     }
 
-
-
-
+    @Override
+    public Page<MotoGetDto> findMotoByModeloPaged(ModeloMoto modelo, Pageable pageable) {
+        Page<Moto> motos = motoRepository.findByModelo(modelo, pageable);
+        if (motos.isEmpty()) {
+            throw new EmptyResultException("Nenhuma moto encontrada para o modelo: " + modelo.name());
+        }
+        return motos.map(MotoGetDto::new);
+    }
 
 
 }

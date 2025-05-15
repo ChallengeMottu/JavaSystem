@@ -37,11 +37,12 @@ public class BeaconController {
     @GetMapping
     @Operation(summary = "Lista todos os Beacons cadastrados em sistemas")
     public ResponseEntity<List<Beacon>> getAllBeacons() {
-        List<Beacon> beacons = beaconServiceImpl.listAllBeacons();
+        List<Beacon> beacons = beaconServiceImpl.findAllBeacons();
         return ResponseEntity.ok(beacons);
     }
 
     @GetMapping("/pageable")
+    @Operation(summary = "Lista com paginação todos os Beacons")
     public ResponseEntity<Page<Beacon>> getAllBeaconsPaginated(Pageable pageable) {
         Page<Beacon> beacon = beaconServiceImpl.findAllBeaconsPaged(pageable);
         return ResponseEntity.ok().body(beacon);

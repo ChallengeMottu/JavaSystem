@@ -595,3 +595,185 @@ Caused by: org.hibernate.TransientObjectException: persistent instance reference
 2025-05-14T00:10:36.325-03:00  WARN 12820 --- [PulseSystem] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
 2025-05-14T00:10:36.325-03:00  INFO 12820 --- [PulseSystem] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
 2025-05-14T00:10:36.341-03:00  INFO 12820 --- [PulseSystem] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.
+2025-05-14T22:21:15.997-03:00  INFO 19368 --- [PulseSystem] [restartedMain] br.com.pulse.AppPulseApplication         : Starting AppPulseApplication using Java 17.0.12 with PID 19368 (C:\Users\gabis\OneDrive - Fiap-Faculdade de Informática e Administração Paulista\Área de Trabalho\Estudos\Java\UserApi\PulseSystem\target\classes started by gabis in C:\Users\gabis\OneDrive - Fiap-Faculdade de Informática e Administração Paulista\Área de Trabalho\Estudos\Java\UserApi\PulseSystem)
+2025-05-14T22:21:15.999-03:00  INFO 19368 --- [PulseSystem] [restartedMain] br.com.pulse.AppPulseApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-14T22:21:16.048-03:00  INFO 19368 --- [PulseSystem] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-05-14T22:21:16.048-03:00  INFO 19368 --- [PulseSystem] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-05-14T22:21:17.044-03:00  INFO 19368 --- [PulseSystem] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-14T22:21:17.100-03:00  INFO 19368 --- [PulseSystem] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 3 JPA repository interfaces.
+2025-05-14T22:21:17.575-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-05-14T22:21:17.587-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-14T22:21:17.587-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2025-05-14T22:21:17.630-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-14T22:21:17.630-03:00  INFO 19368 --- [PulseSystem] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1581 ms
+2025-05-14T22:21:17.769-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-14T22:21:17.850-03:00  INFO 19368 --- [PulseSystem] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.11.Final
+2025-05-14T22:21:17.890-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-14T22:21:18.158-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-14T22:21:18.183-03:00  INFO 19368 --- [PulseSystem] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Starting...
+2025-05-14T22:21:18.342-03:00  INFO 19368 --- [PulseSystem] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : SpringBootHikariCP - Added connection conn0: url=jdbc:h2:mem:pulsesystemdb user=SA
+2025-05-14T22:21:18.343-03:00  INFO 19368 --- [PulseSystem] [restartedMain] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Start completed.
+2025-05-14T22:21:18.411-03:00  INFO 19368 --- [PulseSystem] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (SpringBootHikariCP)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-14T22:21:19.281-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-14T22:21:19.295-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists beacon cascade 
+2025-05-14T22:21:19.298-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists moto cascade 
+2025-05-14T22:21:19.299-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    drop table if exists patio cascade 
+2025-05-14T22:21:19.304-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    create table beacon (
+        id bigint generated by default as identity,
+        moto_id bigint unique,
+        codigo uuid not null unique,
+        status enum ('ATIVO','EM_MANUTENCAO','INATIVO'),
+        primary key (id)
+    )
+2025-05-14T22:21:19.312-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    create table moto (
+        modelo tinyint check (modelo between 0 and 2),
+        id bigint generated by default as identity,
+        patio_id bigint,
+        numero_chassi varchar(255),
+        placa varchar(255),
+        condicao_mecanica enum ('BOM_ESTADO','GRAVEMENTE_DANIFICADA','INOPERANTE','NECESSITA_REVISAO','PEQUENOS_REPAROS'),
+        status enum ('INVESTIGACAO_POR_ACIDENTE','INVESTIGACAO_POR_FURTO','PLACA_REGISTRADA','SEM_PLACA'),
+        primary key (id)
+    )
+2025-05-14T22:21:19.317-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    create table patio (
+        capacidade integer not null,
+        comprimento float(53) not null,
+        largura float(53) not null,
+        total_zonas integer not null,
+        id bigint generated by default as identity,
+        bairro varchar(255),
+        cep varchar(255),
+        cidade varchar(255),
+        estado varchar(255),
+        numero varchar(255),
+        rua varchar(255),
+        primary key (id)
+    )
+2025-05-14T22:21:19.318-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists beacon 
+       add constraint FKap60qi2abs49t0finkye1rueu 
+       foreign key (moto_id) 
+       references moto
+2025-05-14T22:21:19.326-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    alter table if exists moto 
+       add constraint FK2omb7paq1oc74hmypo1l0nogl 
+       foreign key (patio_id) 
+       references patio
+2025-05-14T22:21:19.330-03:00  INFO 19368 --- [PulseSystem] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-14T22:21:19.611-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.BeaconServiceImpl.saveBeacon' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.623-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.BeaconServiceImpl.deleteBeaconById' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.623-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.BeaconServiceImpl.updateBeacon' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.644-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.MotoServiceImpl.saveMoto' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.645-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.MotoServiceImpl.updateMoto' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.646-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.MotoServiceImpl.deleteMotoById' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.655-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] t.a.AnnotationTransactionAttributeSource : Adding transactional method 'br.com.pulse.services.PatioServiceImpl.updatePatio' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2025-05-14T22:21:19.771-03:00  WARN 19368 --- [PulseSystem] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-14T22:21:20.139-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/console'. Database available at 'jdbc:h2:mem:pulsesystemdb'
+2025-05-14T22:21:20.184-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-05-14T22:21:20.216-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-14T22:21:20.216-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-14T22:21:20.217-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-14T22:21:20.219-03:00  INFO 19368 --- [PulseSystem] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-05-14T22:21:20.227-03:00  INFO 19368 --- [PulseSystem] [restartedMain] br.com.pulse.AppPulseApplication         : Started AppPulseApplication in 4.815 seconds (process running for 5.681)
+2025-05-14T22:21:20.239-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:21:20.261-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        patio
+        (capacidade, comprimento, bairro, cep, cidade, estado, numero, rua, largura, total_zonas, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, default)
+2025-05-14T22:21:20.296-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:21:20.305-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:21:20.306-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        moto
+        (condicao_mecanica, modelo, numero_chassi, patio_id, placa, status, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2025-05-14T22:21:20.307-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:21:20.307-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:21:20.308-03:00 DEBUG 19368 --- [PulseSystem] [restartedMain] org.hibernate.SQL                        : 
+    insert 
+    into
+        beacon
+        (codigo, moto_id, status, id) 
+    values
+        (?, ?, ?, default)
+2025-05-14T22:21:20.312-03:00 TRACE 19368 --- [PulseSystem] [restartedMain] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2025-05-14T22:22:18.356-03:00  WARN 19368 --- [PulseSystem] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource motos.]
+2025-05-14T22:22:18.393-03:00  WARN 19368 --- [PulseSystem] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-14T22:22:27.518-03:00  WARN 19368 --- [PulseSystem] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-14T22:22:30.841-03:00  WARN 19368 --- [PulseSystem] [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-14T22:22:40.384-03:00 TRACE 19368 --- [PulseSystem] [http-nio-8080-exec-8] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]
+2025-05-14T22:22:40.591-03:00 DEBUG 19368 --- [PulseSystem] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        m1_0.id,
+        m1_0.condicao_mecanica,
+        m1_0.modelo,
+        m1_0.numero_chassi,
+        m1_0.patio_id,
+        m1_0.placa,
+        m1_0.status 
+    from
+        moto m1_0
+2025-05-14T22:22:40.633-03:00 DEBUG 19368 --- [PulseSystem] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.codigo,
+        m1_0.id,
+        m1_0.condicao_mecanica,
+        m1_0.modelo,
+        m1_0.numero_chassi,
+        p1_0.id,
+        p1_0.capacidade,
+        p1_0.comprimento,
+        p1_0.bairro,
+        p1_0.cep,
+        p1_0.cidade,
+        p1_0.estado,
+        p1_0.numero,
+        p1_0.rua,
+        p1_0.largura,
+        p1_0.total_zonas,
+        m1_0.placa,
+        m1_0.status,
+        b1_0.status 
+    from
+        beacon b1_0 
+    left join
+        moto m1_0 
+            on m1_0.id=b1_0.moto_id 
+    left join
+        patio p1_0 
+            on p1_0.id=m1_0.patio_id 
+    where
+        b1_0.moto_id=?
+2025-05-14T22:22:40.649-03:00 TRACE 19368 --- [PulseSystem] [http-nio-8080-exec-8] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]
+2025-05-14T22:22:40.775-03:00  WARN 19368 --- [PulseSystem] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2025-05-14T22:23:01.711-03:00  INFO 19368 --- [PulseSystem] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-05-14T22:23:01.791-03:00  INFO 19368 --- [PulseSystem] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-05-14T22:23:01.806-03:00  INFO 19368 --- [PulseSystem] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-14T22:23:01.806-03:00 DEBUG 19368 --- [PulseSystem] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists beacon cascade 
+2025-05-14T22:23:01.806-03:00 DEBUG 19368 --- [PulseSystem] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists moto cascade 
+2025-05-14T22:23:01.806-03:00 DEBUG 19368 --- [PulseSystem] [SpringApplicationShutdownHook] org.hibernate.SQL                        : 
+    drop table if exists patio cascade 
+2025-05-14T22:23:01.806-03:00  WARN 19368 --- [PulseSystem] [SpringApplicationShutdownHook] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
+2025-05-14T22:23:01.806-03:00  INFO 19368 --- [PulseSystem] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown initiated...
+2025-05-14T22:23:01.822-03:00  INFO 19368 --- [PulseSystem] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : SpringBootHikariCP - Shutdown completed.

@@ -84,7 +84,7 @@ public class BeaconServiceImpl implements BeaconService {
 
     @Override
     @Cacheable(value = "beaconCache", key = "'beacons_all'")
-    public List<Beacon> listAllBeacons() {
+    public List<Beacon> findAllBeacons() {
         return beaconRepository.findAll();
     }
 
