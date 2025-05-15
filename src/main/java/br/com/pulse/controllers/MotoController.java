@@ -83,17 +83,7 @@ public class MotoController {
             return ResponseEntity.ok(motoCodigo);
     }
 
-    @GetMapping("/modelo/{modelo}")
-    public ResponseEntity<List<MotoGetDto>> findMotoByModelo(@PathVariable ModeloMoto modelo) {
-        List<MotoGetDto> motos = motoServiceImpl.findMotoByModelo(modelo);
-        return ResponseEntity.ok(motos);
-    }
 
-    @GetMapping("/modelo/{modelo}/pageable")
-    public ResponseEntity<Page<MotoGetDto>> findMotoByModeloPaged(@PathVariable ModeloMoto modelo, Pageable pageable) {
-        Page<MotoGetDto> motos = motoServiceImpl.findMotoByModeloPaged(modelo, pageable);
-        return ResponseEntity.ok(motos);
-    }
 
 
 

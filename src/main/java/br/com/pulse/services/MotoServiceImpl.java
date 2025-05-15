@@ -36,7 +36,6 @@ public class MotoServiceImpl implements MotoService {
     }
 
     @Override
-    @Cacheable(value = "motoCache", key = "'motos_all'")
     public List<MotoGetDto> findAllMotos() {
 
         List<Moto> motos = motoRepository.findAll();
@@ -117,27 +116,6 @@ public class MotoServiceImpl implements MotoService {
                 .orElseThrow(() -> new ObjectNotFoundException("Moto", codigoBeacon));
     }
 
-    @Override
-    @Cacheable(value = "motoCache", key = "#modelo.name")
-    public List<MotoGetDto> findMotoByModelo(ModeloMoto modelo) {
-        List<Moto> motos = motoRepository.findByModelo(modelo);
-        if (motos.isEmpty()){
-            throw new EmptyResultException("Nenhuma moto encontrada");
-        }
-        return motos
-                .stream()
-                .map(MotoGetDto::new)
-                .toList();
-    }
-
-    @Override
-    public Page<MotoGetDto> findMotoByModeloPaged(ModeloMoto modelo, Pageable pageable) {
-        Page<Moto> motos = motoRepository.findByModelo(modelo, pageable);
-        if (motos.isEmpty()) {
-            throw new EmptyResultException("Nenhuma moto encontrada para o modelo: " + modelo.name());
-        }
-        return motos.map(MotoGetDto::new);
-    }
 
 
 }

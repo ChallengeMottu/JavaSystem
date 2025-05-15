@@ -35,7 +35,6 @@ public class PatioServiceImpl implements PatioService {
     }
 
     @Override
-    @Cacheable(value = "patioCache", key = "#patioId")
     public List<MotoGetDto> listAllMotos(Long patioId) {
         Patio patio = patioRepository.findById(patioId)
                 .orElseThrow(()-> new ObjectNotFoundException("Patio", patioId));

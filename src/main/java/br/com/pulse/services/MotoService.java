@@ -22,8 +22,6 @@ public interface MotoService {
     void deleteMotoById(Long id);
     MotoPostDto updateMoto(Long id, MotoPostDto motoPostDto);
     MotoGetDto findMotoByCodigoBeacon(UUID codigoBeacon);
-    List<MotoGetDto> findMotoByModelo(ModeloMoto modelo);
-    Page<MotoGetDto> findMotoByModeloPaged(ModeloMoto modelo, Pageable pageable);
 
 
 
