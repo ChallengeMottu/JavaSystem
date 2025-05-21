@@ -151,7 +151,7 @@ az network nsg rule create --resource-group rg-vm-challenge --nsg-name vm-challe
 
 ### Criação de Container para rodar imagem
 ```bash
-docker run -d -p 8080:80 gabrielasreiss/pulse_system:1.0
+docker run -d -p 8080:8080 gabrielasreiss/pulse_system:1.0
 ```
 
 ## 👥 Grupo Desenvolvedor 
