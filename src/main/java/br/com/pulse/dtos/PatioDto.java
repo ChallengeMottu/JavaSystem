@@ -2,7 +2,6 @@ package br.com.pulse.dtos;
 
 import br.com.pulse.domainmodel.Endereco;
 import br.com.pulse.domainmodel.Patio;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +12,10 @@ public class PatioDto {
     @NotNull(message = "O endereço do patio precisa ser fornecido")
     private Endereco endereco;
 
-    @NotBlank(message = "O comprimento em metros é obrigatório")
+    @NotNull(message = "O comprimento em metros é obrigatório")
     private double comprimento;
 
-    @NotBlank(message = "A largura em metros é obrigatória")
+    @NotNull(message = "A largura em metros é obrigatória")
     private double largura;
 
     public PatioDto() {

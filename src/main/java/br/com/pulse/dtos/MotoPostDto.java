@@ -3,7 +3,6 @@ package br.com.pulse.dtos;
 import br.com.pulse.domainmodel.Moto;
 import br.com.pulse.domainmodel.enuns.CondicaoMecanica;
 import br.com.pulse.domainmodel.enuns.ModeloMoto;
-import br.com.pulse.domainmodel.enuns.StatusBeacon;
 import br.com.pulse.domainmodel.enuns.StatusMoto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -8,8 +8,9 @@ import br.com.pulse.domainmodel.enuns.StatusMoto;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-
+import lombok.Setter;
 
 
 import java.util.Objects;
@@ -19,34 +20,38 @@ import java.util.Objects;
 public class Moto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @Getter
+    @Setter
     private Long id;
 
 
+    @Getter @Setter
     private String placa;
 
-
+    @Getter @Setter
     private ModeloMoto modelo;
 
-
-
-
+    @Getter @Setter
     private String numeroChassi;
 
     @Enumerated(EnumType.STRING)
+    @Getter @Setter
     private CondicaoMecanica condicaoMecanica;
 
     @Enumerated(EnumType.STRING)
+    @Getter @Setter
     private StatusMoto status;
 
     @OneToOne(mappedBy = "moto", cascade = CascadeType.ALL)
     @JsonBackReference
     @JsonIgnore
+    @Getter @Setter
     private Beacon beacon;
 
     @ManyToOne
     @JoinColumn(name = "patio_id")
     @JsonBackReference
+    @Getter @Setter
     private Patio patio;
 
     @Override
@@ -62,69 +67,5 @@ public class Moto {
         return Objects.hash(id);
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public ModeloMoto getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(ModeloMoto modelo) {
-        this.modelo = modelo;
-    }
-
-
-
-    public String getNumeroChassi() {
-        return numeroChassi;
-    }
-
-    public void setNumeroChassi(String numeroChassi) {
-        this.numeroChassi = numeroChassi;
-    }
-
-    public CondicaoMecanica getCondicaoMecanica() {
-        return condicaoMecanica;
-    }
-
-    public void setCondicaoMecanica(CondicaoMecanica condicaoMecanica) {
-        this.condicaoMecanica = condicaoMecanica;
-    }
-
-    public StatusMoto getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusMoto status) {
-        this.status = status;
-    }
-
-    public Beacon getBeacon() {
-        return beacon;
-    }
-
-    public void setBeacon(Beacon beacon) {
-        this.beacon = beacon;
-    }
-
-    public Patio getPatio() {
-        return patio;
-    }
-
-    public void setPatio(Patio patio) {
-        this.patio = patio;
-    }
 }
