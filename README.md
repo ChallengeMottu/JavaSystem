@@ -4,8 +4,8 @@
 
 - [Funcionalidades da Aplicação Java](#funcionalidades-da-aplicação-java)
 - [Endpoints de Funcionamento das Entidades](#endpoints-de-funcionamento-das-entidades)
-  - [Moto](#moto)
-  - [Patio](#patio)
+  - [Moto](#motorcycle)
+  - [Patio](#parking)
   - [Beacon](#beacon)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Como Rodar a API](#como-rodar-a-api)
@@ -15,9 +15,9 @@
 
 ---
 
-A **Solução Pulse** é uma proposta para otimizar a gestão dos pátios da empresa **Mottu**, responsável pela alocação e controle de motos. A identificação de cada moto é feita por meio da tecnologia **Beacon BLE**, permitindo rastreabilidade em tempo real.
+A **Solução Pulse** é uma proposta para otimizar a gestão dos pátios da empresa **Mottu**, responsável pela alocação e controle de motorcycles. A identificação de cada motorcycle é feita por meio da tecnologia **Beacon BLE**, permitindo rastreabilidade em tempo real.
 
-Embora o sistema Java **não receba diretamente os sinais BLE**, ele é responsável por **gerenciar o cadastro e a associação entre motos e seus respectivos beacons**, garantindo a identificação precisa a partir do código BLE detectado por dispositivos externos (como scanners BLE).
+Embora o sistema Java **não receba diretamente os sinais BLE**, ele é responsável por **gerenciar o cadastro e a associação entre motorcycles e seus respectivos beacons**, garantindo a identificação precisa a partir do código BLE detectado por dispositivos externos (como scanners BLE).
 
 ---
 
@@ -25,12 +25,12 @@ Embora o sistema Java **não receba diretamente os sinais BLE**, ele é respons�
 
 A aplicação foi desenvolvida com **Java + Spring Boot** e segue uma arquitetura em camadas, oferecendo os seguintes recursos principais:
 
-- 📌 **Cadastro e edição de motos**, incluindo dados como modelo, status e condição mecânica.
+- 📌 **Cadastro e edição de motorcycles**, incluindo dados como modelo, status e condição mecânica.
 - 📡 **Cadastro de beacons BLE**, com identificador único.
-- 🔗 **Associação entre motos e beacons**, permitindo a identificação automatizada via código BLE.
-- 🧭 **Sugestão de alocação no pátio**, com base na condição mecânica e status de uso da moto.
-- 📊 **Consulta de motos** por ID, status, zona ou código BLE.
-- 🗺️ **Gestão das zonas do pátio**, com base em espaço disponível e tipo de moto.
+- 🔗 **Associação entre motorcycles e beacons**, permitindo a identificação automatizada via código BLE.
+- 🧭 **Sugestão de alocação no pátio**, com base na condição mecânica e status de uso da motorcycle.
+- 📊 **Consulta de motorcycles** por ID, status, zona ou código BLE.
+- 🗺️ **Gestão das zonas do pátio**, com base em espaço disponível e tipo de motorcycle.
 
 ---
 
@@ -39,25 +39,25 @@ A aplicação foi desenvolvida com **Java + Spring Boot** e segue uma arquitetur
 
 | Método | Endpoint               | Descrição                              |
 |--------|------------------------|--------------------------------------|
-| GET    | `/moto/{id}`           | Busca Moto por ID                     |
-| GET    | `/moto`                | Lista todas as Motos                  |
-| GET    | `/moto/pageable`       | Lista Motos paginadas                 |
-| POST   | `/moto/{patioId}`      | Cadastra Moto vinculado a Pátio      |
-| PUT    | `/moto/{id}`           | Atualiza Moto por ID                  |
-| DELETE | `/moto/{id}`           | Deleta Moto por ID                    |
-| GET    | `/moto/beacon/{codigo}`| Busca Moto pelo código UUID do Beacon|
+| GET    | `/motorcycle/{id}`           | Busca Moto por ID                     |
+| GET    | `/motorcycle`                | Lista todas as Motos                  |
+| GET    | `/motorcycle/pageable`       | Lista Motos paginadas                 |
+| POST   | `/motorcycle/{patioId}`      | Cadastra Moto vinculado a Pátio      |
+| PUT    | `/motorcycle/{id}`           | Atualiza Moto por ID                  |
+| DELETE | `/motorcycle/{id}`           | Deleta Moto por ID                    |
+| GET    | `/motorcycle/beacon/{codigo}`| Busca Moto pelo código UUID do Beacon|
 
 # Patio
 
 | Método | Endpoint              | Descrição                          |
 |--------|-----------------------|----------------------------------|
-| GET    | `/patio`              | Lista todos os Pátios             |
-| GET    | `/patio/pageable`     | Lista Pátios paginados            |
-| GET    | `/patio/{id}`         | Busca Pátio por ID               |
-| GET    | `/patio/{id}/motos`   | Lista Motos de um Pátio           |
-| POST   | `/patio`              | Cadastra novo Pátio              |
-| PUT    | `/patio/{id}`         | Atualiza Pátio por ID             |
-| DELETE | `/patio/{id}`         | Deleta Pátio por ID               |
+| GET    | `/parking`              | Lista todos os Pátios             |
+| GET    | `/parking/pageable`     | Lista Pátios paginados            |
+| GET    | `/parking/{id}`         | Busca Pátio por ID               |
+| GET    | `/parking/{id}/motorcycles`   | Lista Motos de um Pátio           |
+| POST   | `/parking`              | Cadastra novo Pátio              |
+| PUT    | `/parking/{id}`         | Atualiza Pátio por ID             |
+| DELETE | `/parking/{id}`         | Deleta Pátio por ID               |
 
 # Beacon
 | Método | Endpoint           | Descrição                           |

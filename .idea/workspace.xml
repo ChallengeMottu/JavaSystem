@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7abbd20d-5e78-40f6-a9be-2f2fc40abdfc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/MapperConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/AssociationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/MotorcycleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/entities/Beacon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/entities/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/entities/Parking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enums/MotorcycleModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enums/OperationStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enums/StatusBeacon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enums/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/request/BeaconRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/request/EmployeeRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/request/MotorcycleRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/response/BeaconResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/response/EmployeeResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/response/MotorcycleResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/CustomAuthenticationEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/InvalidArgumentException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/InvalidPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/ObjectAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/infraestruture/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/infraestruture/security/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/infraestruture/security/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/MotorcycleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/ParkingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/implementations/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/implementations/BeaconAssociationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/implementations/BeaconServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/implementations/EmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/implementations/MotorcycleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/interfaces/BeaconAssociationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/interfaces/BeaconService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/interfaces/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/interfaces/MotorcycleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/BeaconController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/BeaconController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/MotoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/controllers/PatioController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/Beacon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/Endereco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/Moto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/entities/Motorcycle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/Patio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enuns/CondicaoMecanica.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enuns/ModeloMoto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enuns/StatusBeacon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/domainmodel/enuns/StatusMoto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/BeaconPostDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/MotoGetDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/MotoPostDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/PatioDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/dtos/PatioGetDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/EmptyResultException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/ResourceNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/exceptions/ObjectNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/infraestruture/CacheConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/infraestruture/DataInicial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/BeaconRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/BeaconRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/MotoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/repositories/PatioRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/BeaconService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/BeaconServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/MotoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/MotoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/PatioService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/pulse/services/PatioServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Exception" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="34LsIx0esmDFBXT77ESAnLDnyne" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.AppPulseApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/gabis/IdeaProjects/Java_System",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="JavaSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="JavaSystem" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AppPulseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="PulseSystem" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="br.com.pulse.AppPulseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7abbd20d-5e78-40f6-a9be-2f2fc40abdfc" name="Changes" comment="" />
+      <created>1761004112485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1761004112485</updated>
+      <workItem from="1761004116742" duration="6829000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

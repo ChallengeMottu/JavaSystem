@@ -1,76 +1,85 @@
 package br.com.pulse.controllers;
 
-import br.com.pulse.domainmodel.Beacon;
-import br.com.pulse.dtos.BeaconPostDto;
-import br.com.pulse.services.BeaconServiceImpl;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import br.com.pulse.domainmodel.entities.Beacon;
+import br.com.pulse.domainmodel.enums.StatusBeacon;
+import br.com.pulse.dtos.request.BeaconRequestDto;
+import br.com.pulse.dtos.response.BeaconResponseDto;
+import br.com.pulse.services.interfaces.BeaconService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.modelmapper.ModelMapper;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/beacon")
-@Tag(name = "Beacons", description = "Operações CRUD da entidade Beacon")
+@RequestMapping("/api/beacons")
 public class BeaconController {
 
-    private final BeaconServiceImpl beaconServiceImpl;
+    private final BeaconService beaconService;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    public BeaconController(BeaconServiceImpl beaconServiceImpl) {
-        this.beaconServiceImpl = beaconServiceImpl;
+    public BeaconController(BeaconService beaconService, ModelMapper modelMapper) {
+        this.beaconService = beaconService;
+        this.modelMapper = modelMapper;
     }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Tem como função a busca pelos Beacons de acordo com seu ID cadastrado")
-    public ResponseEntity<Beacon> getBeaconById(@PathVariable Long id) {
-        return ResponseEntity.ok(beaconServiceImpl.findBeaconById(id));
-    }
 
+    @PreAuthorize("hasRole('OPERADOR')")
     @GetMapping
-    @Operation(summary = "Lista todos os Beacons cadastrados em sistemas")
-    public ResponseEntity<List<Beacon>> getAllBeacons() {
-        List<Beacon> beacons = beaconServiceImpl.findAllBeacons();
-        return ResponseEntity.ok(beacons);
-    }
-
-    @GetMapping("/pageable")
-    @Operation(summary = "Lista com paginação todos os Beacons")
-    public ResponseEntity<Page<Beacon>> getAllBeaconsPaginated(Pageable pageable) {
-        Page<Beacon> beacon = beaconServiceImpl.findAllBeaconsPaged(pageable);
-        return ResponseEntity.ok().body(beacon);
-    }
-
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Deleta Beacon pelo ID")
-    public ResponseEntity<Void> deleteBeaconById(@PathVariable Long id) {
-        beaconServiceImpl.deleteBeaconById(id);
-        return ResponseEntity.noContent().build();
+    public List<BeaconResponseDto> findAll() {
+        return beaconService.findAll()
+                .stream()
+                .map(beacon -> modelMapper.map(beacon, BeaconResponseDto.class))
+                .collect(Collectors.toList());
     }
 
 
+    @PreAuthorize("hasRole('OPERADOR')")
+    @GetMapping("/{id}")
+    public BeaconResponseDto findById(@PathVariable Long id) {
+        Beacon beacon = beaconService.findById(id);
+        return modelMapper.map(beacon, BeaconResponseDto.class);
+    }
 
-    @Operation(summary = "Atualiza o Beacon pelo ID")
+
+    @PreAuthorize("hasRole('OPERADOR')")
+    @PostMapping
+    public BeaconResponseDto create(@Valid @RequestBody BeaconRequestDto dto) {
+        Beacon beacon = modelMapper.map(dto, Beacon.class);
+        Beacon saved = beaconService.save(beacon);
+        return modelMapper.map(saved, BeaconResponseDto.class);
+    }
+
+
+    @PreAuthorize("hasRole('OPERADOR')")
     @PutMapping("/{id}")
-    public ResponseEntity<Beacon> updateBeaconById(@PathVariable Long id, @Valid @RequestBody BeaconPostDto beaconDto) {
-            Beacon beaconUpdated = beaconServiceImpl.updateBeacon(id, beaconDto);
-            return ResponseEntity.ok(beaconUpdated);
+    public BeaconResponseDto update(@PathVariable Long id, @Valid @RequestBody BeaconRequestDto dto) {
+        Beacon beaconAtualizado = modelMapper.map(dto, Beacon.class);
+        Beacon updated = beaconService.update(id, beaconAtualizado);
+        return modelMapper.map(updated, BeaconResponseDto.class);
     }
 
-
-
-    @Operation(summary = "Adiciona um Beacon e o vincula a uma Moto já existente")
-    @PostMapping("/{motoId}")
-    public ResponseEntity<Beacon> saveBeacon(@PathVariable Long motoId, @Valid @RequestBody BeaconPostDto beaconDto) {
-            Beacon beaconSaved = beaconServiceImpl.saveBeacon(beaconDto, motoId);
-            return ResponseEntity.status(HttpStatus.CREATED).body(beaconSaved);
+    @PreAuthorize("hasRole('OPERADOR')")
+    @PatchMapping("/{id}/status")
+    public BeaconResponseDto updateStatus(@PathVariable Long id, @RequestParam StatusBeacon status) {
+        Beacon updated = beaconService.updateStatus(id, status);
+        return modelMapper.map(updated, BeaconResponseDto.class);
     }
 
+    @PreAuthorize("hasRole('OPERADOR')")
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        beaconService.delete(id);
+    }
+
+    @PreAuthorize("hasAnyRole('OPERADOR', 'GESTOR')")
+    @GetMapping("/status/{status}")
+    public List<BeaconResponseDto> findByStatus(@PathVariable StatusBeacon status) {
+        return beaconService.findByStatus(status)
+                .stream()
+                .map(beacon -> modelMapper.map(beacon, BeaconResponseDto.class))
+                .collect(Collectors.toList());
+    }
 }

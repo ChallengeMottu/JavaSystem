@@ -1,14 +1,16 @@
 package br.com.pulse.repositories;
 
-import br.com.pulse.domainmodel.Beacon;
+
+import br.com.pulse.domainmodel.entities.Beacon;
+import br.com.pulse.domainmodel.enums.StatusBeacon;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-import java.util.UUID;
+import java.util.List;
+
 
 public interface BeaconRepository extends JpaRepository<Beacon, Long> {
-
-    Optional<Beacon> findByCodigo(UUID codigo);
+    Beacon findByBeaconCode(String beaconCode);
+    List<Beacon> findByBeaconStatus(StatusBeacon status);
 
 
 }
